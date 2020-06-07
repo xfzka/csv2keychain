@@ -1,40 +1,32 @@
-# сsv2keychain #
-[![PyPI](https://img.shields.io/badge/pypi-v0.1.3-blue.svg)](https://pypi.python.org/pypi/cmdline-csv2keychain/0.1.3)
-[![Python](https://img.shields.io/badge/python-3.4-green.svg)](https://pypi.python.org/pypi?name=cmdline-csv2keychain&version=0.1.0&:action=display)
+# csv2keychain-python-shell
 
-## About ##
+Fork from [https://github.com/nntarasov/csv2keychain]
 
-Small command-line tool for adding exported credentials (login/password pairs) from Chrome to the macOS keychain
+## Why create this script ?
 
-**macOS 10.12.3 Sierra** tested
+I don't want continue to use `1password`, and i named every account record, so i need import `name` column to Apple `keychain.app`.
 
-## Installing ##
-You can install the package via *pip*
-```bash
-$ pip3 install cmdline-csv2keychain
-```
+## Require
 
-## Preparing credentials from Chrome ##
+- python3.6+
 
-1. To use this tool you should manually export credentials from Google Chrome into *.csv* file. In the browser, switch to  ```chrome://flags/#PasswordExport``` and enable option ```#PasswordExport```. 
-*UPD: seems that last versions of chrome enables this feature by default. So you can omit this step*
+### Account file format
 
-2. Reload Chrome
+Need 4 columns, they are "name, url, username, password", no column order limit.
 
-3. Go to ```chrome://settings/passwords```, click ```Other actions``` button (three dots, to the right of ```Saved Passwords``` text), then click ```Export``` and save the ```.csv``` file in any convinient location
-
-## How to use ##
+## Usage
 
 ```bash
-$ csv2keychain [path.csv] [-u] [-s]
+chmod +x csv2keychain.py
+./csv2keychain.py account_file.csv
 ```
 
-* ```-u``` - update existing password for every account in keychain, if any
-* ```-s``` - display credentials on the screen during the process
+### Args
 
-## Example ##
 ```bash
-$ csv2keychain ~/Desktop/Chrome\ Passwords.csv -s
+csv2keychain [path.csv] [-u] [-s]
 ```
 
-Now your Chrome passwords are available for Safari & other apps :)
+- -u - update existing password for every account in keychain, if any
+
+- -s - display credentials on the screen during the process

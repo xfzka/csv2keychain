@@ -1,0 +1,4 @@
+name,url,username,password
+"name1","https://example.com","admin","admin#",
+"name 2","https://localhost","localhost","12346",
+"name3","https://example.com/login.jsp","manager","admin",
